@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8" content="width=device-width, initial-scale=1.0, user-scalable=0" name="viewport">
+	<link rel="stylesheet" type="text/css" href="css/unlock.css">
+	<title>手势密码</title>
+</head>
+<body>
+	<header class="title">手势密码</header>
+	<div class="main-container">
+		<canvas id="myCanvas" class="canvas" width="200" height="200"></canvas>
+		<p id="hint"></p>
+		<div class="select-area">
+			<div class="input-radio">
+				<input id="set" type="radio" name="password" checked /><span>设置密码</span>
+			</div>
+			<div class="input-radio">
+				<input id="verify" type="radio" name="password" /><span>验证密码</span>
+			</div>
+			</div>
+		</div>	
+	</div>
+
+	<script defer="defer" type="text/javascript" src="js/unlock.js"></script>
+</body>
+</html>
