@@ -1,7 +1,0 @@
-看到手势解锁需要拖动画线，决定用canvas来实现，首先用init方法来初始化页面，将九个解锁的圆画出来，随后在start方法中，分别添加touchstart、touchmove、touchend的方法。
-
-touchstart时，判断点的坐标是否在九个圆的内部，绘制圆被选中后的样式，利用password数组存入已经选中的圆的坐标，rest数组表示剩余的坐标。
-
-touchmove时，根据password数组画线，最后一段线段从数组中最后一个点连接到当前触点位置，形成拖动画线的效果。之后遍历rest数组，判断此时的触点是否在rest数组中的坐标的圆内，如果在则push入password数组里面，同时在rest数组里面去掉这个点。
-
-touchend时，根据选择的设置密码或者验证密码来进行设置或者验证，设置密码里面判断密码长度，根据存储密码的数组store的长度来判断是第一次设置还是设置确认，两次设置密码一样后，将password数组用JSON格式存入localstorage。验证密码的时候将存了滑动路径的password数组与localstorage里存的密码比较，一样则验证成功。
