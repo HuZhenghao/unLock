@@ -128,6 +128,7 @@ MyCanvas.prototype = {
 		rest = point.slice();
 		//添加触摸事件		
 		addEvent(this.ele,"touchstart",function(event){
+			event.preventDefault();
 			var p = self.getPosition(event);
 			self.istouched = true;
 			for(var i = 0; i < point.length; i++){
