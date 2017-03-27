@@ -2,6 +2,7 @@
 	Created by HuZhenghao
 	2017/3/27
 */
+(function(){
 function get(id) {
 	return document.getElementById(id);
 }
@@ -93,6 +94,7 @@ MyCanvas.prototype = {
 		ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
 		//将原来的点重新绘制
 		this.init();
+		if(password[0]) {
 		for(var i = 0; i < password.length; i ++) {
 			self.drawPoint(password[i].x,password[i].y);
 		}
@@ -107,6 +109,7 @@ MyCanvas.prototype = {
 		ctx.strokeStyle = "red";
 		ctx.stroke();
 		ctx.closePath();
+		}
 	},
 	//检测密码是否相同
 	checkPassword: function(pa1,pa2){
@@ -179,6 +182,7 @@ MyCanvas.prototype = {
 						}
 						password = [];
 						rest = point.slice();
+						stored = [];
 					}
 					//第一次输入
 					else{
@@ -216,11 +220,15 @@ MyCanvas.prototype = {
 }
 
 var canvas = new MyCanvas(get("myCanvas"));
-addEvent(get("set"),"click",function(){
+addEvent(get("set-block"),"click",function(){
 	stored = [];
+	get("set").checked = true;
 	localStorage.setItem("key","");
 	get("hint").innerHTML = "";
 });
-addEvent(get("verify"),"click",function(){
+addEvent(get("verify-block"),"click",function(){
+	get("verify").checked = true;
 	get("hint").innerHTML = "请输入密码";
 });
+
+})();

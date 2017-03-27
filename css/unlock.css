@@ -3,6 +3,7 @@ body{
 	margin: 0;
 	padding: 0;
 	background-color: #f0f0f2;
+	touch-action: none;
 }
 p{
 	height: 50px;
