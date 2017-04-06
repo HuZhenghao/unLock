@@ -162,6 +162,7 @@ MyCanvas.prototype = {
 			self.init();
 			//如果选择设置密码
 			if(get("set").checked){
+
 				//若密码少于5位
 				if(password.length < 5){
 					get("hint").innerHTML = "密码太短,至少需要5个点";
@@ -174,7 +175,8 @@ MyCanvas.prototype = {
 					if(stored.length >= 5){
 						if(self.checkPassword(password,stored)){
 							get("hint").innerHTML = "密码设置成功";
-							//密码设置成功后跳到验证密码阶段
+							//先将localstorage清空，防止在验证密码未结束的时候点击设置密码出错
+							localStorage.setItem("key","");
 							localStorage.setItem("key", JSON.stringify(stored));
 						}
 						else{
@@ -224,7 +226,7 @@ var canvas = new MyCanvas(get("myCanvas"));
 addEvent(get("set-block"),"click",function(){
 	stored = [];
 	get("set").checked = true;
-	localStorage.setItem("key","");
+	
 	get("hint").innerHTML = "";
 });
 addEvent(get("verify-block"),"click",function(){
